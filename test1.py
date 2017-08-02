@@ -251,23 +251,67 @@ from functools import reduce
 #     else:
 #         break
 
-def is_palindrome(n):
-    res = True
-    l = [n for n in str(n)]
-    length = len(l)
-    if length > 1:
-        for i, value in enumerate(l):
-            if i < length / 2:
-                if l[i] != l[length - i - 1]:
-                    res = False
-                    break
-    else:
-        res = False
-    return res
+# def is_palindrome(n):
+#     res = True
+#     l = [n for n in str(n)]
+#     length = len(l)
+#     if length > 1:
+#         for i, value in enumerate(l):
+#             if i < length / 2:
+#                 if l[i] != l[length - i - 1]:
+#                     res = False
+#                     break
+#     else:
+#         res = False
+#     return res
 # def is_palindrome(value):
 #     if isinstance(value,int):
 #         return str(value)==str(value)[::-1]
 #     else:
 #         return value==value[::-1]
-output = filter(is_palindrome, range(1, 1000))
-print(list(output))
+# output = filter(is_palindrome, range(1, 1000))
+# print(list(output))
+
+# def by_name(t):
+#     return t[0]
+# def by_score(t):
+#     return t[1]
+# L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+# # L2 = sorted(L, key=by_name)
+# L2 = sorted(L, key=by_score, reverse=True)
+# print(L2)
+
+# def count():
+#     def f(j):
+#         def g():
+#             return j*j
+#         return g
+#     fs = []
+#     for i in range(1, 4):
+#         fs.append(f(i))
+#     return fs
+# def count():
+#     fs = []
+#     for i in range(1, 4):
+#         fs.append(lambda j=i: j*j)
+#     return fs
+
+import functools
+def log(arg):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            if callable(arg):
+                print('%s %s():' % ('call', func.__name__))
+            else:
+                print('%s %s():' % (arg, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    if callable(arg):
+        return decorator(arg)
+    else:
+        return decorator
+    
+@log
+def now():
+    print('2017-08-01')
