@@ -2,6 +2,9 @@
 # -*- coding: utf=8 -*-
 
 class Student(object):
+    bar = True
+    def foo(self):
+         print(self.bar)
     def __init__(self, name, score):
         self.__name = name
         self.__score = score

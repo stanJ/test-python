@@ -4,3 +4,9 @@ class ListMetaclass(type):
         return type.__new__(cls, name, bases, attrs)
 class MyList(list, metaclass=ListMetaclass):
     pass
+
+class Foo(object):
+    bar = True
+def echo_bar(self):
+    print(self.bar)
+FooChild = type('FooChild', (Foo,), {'echo_bar': echo_bar})
