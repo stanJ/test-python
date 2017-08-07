@@ -1,1 +1,1 @@
-Hello, world!
+{"age": 25, "name": "Stan", "score": 99}
