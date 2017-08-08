@@ -2,4 +2,4 @@
 # -*- coding: utf-8 -*-
 
 import re
-re_email = re.compile(r'')
+re_email = re.compile(r'^(\w[\w\_\.]*[\w])@([a-z]*\.com)$')
