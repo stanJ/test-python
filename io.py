@@ -18,4 +18,4 @@ import logging
 #     print(f.read())
 
 with open('test.txt', 'w') as f:
-    f.write('Hello, world!')
+    f.write('Hello, Stan!')
